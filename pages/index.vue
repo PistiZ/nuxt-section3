@@ -39,7 +39,7 @@
         position: relative;
         padding: 30px;
         box-sizing: border-box;
-        background-position: center;
+        background: url('~assets/images/main-page-background.jpg') center;
         background-size: cover;
     }
 
