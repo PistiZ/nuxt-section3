@@ -1,66 +1,113 @@
 <template>
-  <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        nuxt-section3
-      </h1>
-      <h2 class="subtitle">
-        My amazing Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+    <div class="home-page">
+        <section class="intro">
+            <h1>Get the latest tech news!</h1>
+        </section>
+
+        <section class="featured-posts">
+            <nuxt-link :to="'/posts/' + 1" class="post-preview">
+                <article>
+                    <div class="post-thumbnail" style="background-image: url('https://cdn.bmwblog.com/wp-content/uploads/2017/05/2017-BMW-M550d-G30-Quadturbo-Diesel-M-Performance-01-830x553.jpg')">
+
+                    </div>
+
+                    <div class="post-content">
+                        <h1>Post Title</h1>
+
+                        <p>Preview Text</p>
+                    </div>
+                </article>
+            </nuxt-link>
+
+            <nuxt-link :to="'/posts/' + 2" class="post-preview">
+                <article>
+                    <div class="post-thumbnail" style="background-image: url('https://picolio.auto123.com/13photo/audi/2013-audi-a4-20-tsfi-fronttrack_1.jpg')">
+
+                    </div>
+
+                    <div class="post-content">
+                        <h1>Post Title 2</h1>
+
+                        <p>Preview Text 2</p>
+                    </div>
+                </article>
+            </nuxt-link>
+        </section>
     </div>
-  </section>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
+<style scoped>
+    .intro {
+        height: 300px;
+        position: relative;
+        padding: 30px;
+        box-sizing: border-box;
+        background-position: center;
+        background-size: cover;
+    }
 
-export default {
-  components: {
-    Logo
-  }
-}
-</script>
+    .intro h1 {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        width: 90%;
+        font-size: 1.5rem;
+        color: black;
+        background-color: rgb(211, 211, 211);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px black;
+        box-sizing: border-box;
+        border: 1px solid black;
+    }
 
-<style>
+    @media (min-width: 768px) {
+        .intro h1 {
+            font-size: 2rem;
+        }
+    }
 
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+    .featured-posts {
+        display: flex;
+        padding: 20px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+    .post-preview {
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px #ccc;
+        background-color: white;
+        width: 90%;
+    }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+    a {
+        text-decoration: none;
+        color: black;
+    }
 
-.links {
-  padding-top: 15px;
-}
+    @media (min-width: 850px) {
+        .post-preview {
+            width: 400px;
+            margin: 10px;
+        }
+    }
+
+    .post-thumbnail {
+        width: 100%;
+        height: 200px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .post-content {
+        padding: 10px;
+        text-align: center;
+    }
+
+    a:hover .post-content, a:active .post-content {
+        background-color: #ccc;
+    }
 </style>
