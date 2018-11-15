@@ -28,7 +28,8 @@
             return {
                 isLogin: true
             }
-        }
+        },
+        layout: 'admin'
     }
 </script>
 

@@ -22,7 +22,8 @@
                     thumbnailLink: 'https://cdn.bmwblog.com/wp-content/uploads/2017/05/2017-BMW-M550d-G30-Quadturbo-Diesel-M-Performance-01-830x553.jpg'
                 }
             }
-        }
+        },
+        layout: 'admin'
     }
 </script>
 

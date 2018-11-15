@@ -20,7 +20,8 @@
         components: {
             AppButton,
             PostList
-        }
+        },
+        layout: 'admin'
     }
 </script>
 
