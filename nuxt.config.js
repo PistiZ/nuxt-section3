@@ -73,5 +73,15 @@ module.exports = {
 
     env: {
         baseUrl: process.env.BASE_URL ||  'https://nuxt-blog-1005d.firebaseio.com'
+    },
+
+    router: {
+        // extendRoutes(routes, resolve) {
+        //     routes.push({
+        //         path: '*',
+        //         component: resolve(__dirname, 'pages/index.vue')
+        //     })
+        // },
+        // linkActiveClass: 'active'
     }
 };
