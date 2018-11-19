@@ -4,9 +4,11 @@
 
         <AppControlInput v-model="editedPost.title">Title</AppControlInput>
 
-        <AppControlInput v-model="editedPost.thumbnailLink">Thumbnail link</AppControlInput>
+        <AppControlInput v-model="editedPost.thumbnail">Thumbnail link</AppControlInput>
 
         <AppControlInput v-model="editedPost.content" control-type="textarea">Content</AppControlInput>
+
+        <AppControlInput v-model="editedPost.previewText" control-type="textarea">Preview text</AppControlInput>
 
         <AppButton type="submit">Save</AppButton>
 
@@ -36,8 +38,9 @@
                     : {
                         author: '',
                         title: '',
-                        thumbnailLink: '',
-                        content: ''
+                        thumbnail: '',
+                        content: '',
+                        previewText: ''
                     }
             }
         },
