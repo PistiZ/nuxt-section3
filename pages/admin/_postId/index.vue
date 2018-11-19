@@ -8,20 +8,20 @@
 
 <script>
     import AdminPostForm from "@/components/Admin/AdminPostForm";
+    import axios from 'axios';
 
     export default {
         components: {
             AdminPostForm
         },
-        data() {
-            return {
-                loadedPost: {
-                    author: 'Doxy',
-                    title: 'My awesome post',
-                    content: 'Super amazing, thanks for that!',
-                    thumbnailLink: 'https://cdn.bmwblog.com/wp-content/uploads/2017/05/2017-BMW-M550d-G30-Quadturbo-Diesel-M-Performance-01-830x553.jpg'
-                }
-            }
+        asyncData(context) {
+            return axios.get('https://nuxt-blog-1005d.firebaseio.com/posts/' + context.params.postId + '.json')
+                .then(res => {
+                    return {
+                        loadedPost: res.data
+                    }
+                })
+                .catch(e => context.error(e));
         },
         layout: 'admin'
     }
