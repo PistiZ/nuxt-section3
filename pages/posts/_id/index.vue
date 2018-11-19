@@ -18,21 +18,17 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
-        asyncData(context, callback) {
-            setTimeout(() => {
-                callback(null, {
-                    loadedPost: {
-                        id: '1',
-                        title: 'First post (ID: ' + context.params.id + ')',
-                        previewText: 'This is our first post',
-                        author: 'István',
-                        updatedDate: new Date(),
-                        content: 'Some dummy text which is very great!',
-                        thumbnail: 'https://cdn.bmwblog.com/wp-content/uploads/2017/05/2017-BMW-M550d-G30-Quadturbo-Diesel-M-Performance-01-830x553.jpg'
+        asyncData(context) {
+            return axios.get('https://nuxt-blog-1005d.firebaseio.com/posts/' + context.params.id + '.json')
+                .then(res => {
+                    return {
+                        loadedPost: res.data
                     }
-                });
-            }, 1000);
+                })
+                .catch(e => context.error(e));
         }
     }
 </script>

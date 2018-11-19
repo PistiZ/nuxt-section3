@@ -16,9 +16,11 @@
         },
         methods: {
             onSubmitted(data) {
-                axios.post('https://nuxt-blog-1005d.firebaseio.com/posts.json', data)
-                    .then(result => console.log(result))
-                    .catch(e => console.log(e));
+                axios.post('https://nuxt-blog-1005d.firebaseio.com/posts.json', {
+                    ...data,
+                    updatedDate: new Date()
+                }).then(result => console.log(result))
+                   .catch(e => console.log(e));
             }
         },
         layout: 'admin'
