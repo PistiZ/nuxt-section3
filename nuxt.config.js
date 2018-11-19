@@ -7,7 +7,7 @@ module.exports = {
     ** Headers of the page
     */
     head: {
-        title: pkg.name,
+        title: 'WD Blog',
         meta: [
             {charset: 'utf-8'},
             {
@@ -17,7 +17,7 @@ module.exports = {
             {
                 hid: 'description',
                 name: 'description',
-                content: pkg.description
+                content: 'My cool Nuxt.js dev practice project'
             }
         ],
         link: [
@@ -35,8 +35,14 @@ module.exports = {
 
     /*
     ** Customize the progress-bar color
+    *  disabling: "loading: false"
     */
-    loading: {color: '#fff'},
+    loading: {
+        color: 'red',
+        height: '4px',
+        failedColor: 'blue',
+        duration: 5000
+    },
 
     /*
     ** Global CSS
