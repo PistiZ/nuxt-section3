@@ -47,7 +47,9 @@ module.exports = {
     /*
     ** Global CSS
     */
-    css: [],
+    css: [
+        '~assets/styles/main.css'
+    ],
 
     /*
     ** Plugins to load before mounting the App
@@ -75,7 +77,7 @@ module.exports = {
         baseUrl: process.env.BASE_URL ||  'https://nuxt-blog-1005d.firebaseio.com'
     },
 
-    router: {
+    // router: {
         // extendRoutes(routes, resolve) {
         //     routes.push({
         //         path: '*',
@@ -83,5 +85,10 @@ module.exports = {
         //     })
         // },
         // linkActiveClass: 'active'
+    // }
+
+    transition: {
+        name: 'fade',
+        mode: 'out-in'
     }
 };
