@@ -1,5 +1,4 @@
 import Vuex from 'vuex';
-import axios from 'axios';
 
 const createStore = () => {
     return new Vuex.Store({
@@ -48,14 +47,14 @@ const createStore = () => {
                     updatedDate: new Date()
                 };
 
-                return this.$axios.$post(process.env.baseUrl + '/posts.json', createdPost)
+                return this.$axios.$post(process.env.baseUrl + '/posts.json?auth=' + vuexContext.state.token, createdPost)
                     .then(data => {
                         vuexContext.commit('addPost', { ...createdPost, id: data.name });
                     })
                     .catch(e => console.log(e));
             },
             editPost(vuexContext, editedPost) {
-                return this.$axios.$put(process.env.baseUrl + '/posts/' + editedPost.id + '.json', editedPost)
+                return this.$axios.$put(process.env.baseUrl + '/posts/' + editedPost.id + '.json?auth=' + vuexContext.state.token, editedPost)
                     .then(res => {
                         vuexContext.commit('editPost', editedPost);
                     })
