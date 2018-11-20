@@ -11,6 +11,7 @@
     import TheSidenav from "@/components/Navigation/TheSidenav";
 
     export default {
+        middleware: 'log',
         components: {
             TheSidenav,
             TheHeader

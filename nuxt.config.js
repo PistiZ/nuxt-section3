@@ -88,6 +88,7 @@ module.exports = {
     },
 
     // router: {
+    //     middleware: 'log'
         // extendRoutes(routes, resolve) {
         //     routes.push({
         //         path: '*',
@@ -95,7 +96,7 @@ module.exports = {
         //     })
         // },
         // linkActiveClass: 'active'
-    // }
+    // },
 
     transition: {
         name: 'fade',
