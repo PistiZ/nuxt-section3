@@ -27,7 +27,13 @@
         layout: 'admin',
         methods: {
             onSubmit() {
-                this.$axios.$post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + process.env.fireBaseApiKey, {
+                let authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + process.env.fireBaseApiKey;
+
+                if (!this.isLogin) {
+                    authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + process.env.fireBaseApiKey;
+                }
+
+                this.$axios.$post(authUrl, {
                     email: this.email,
                     password: this.password,
                     returnSecureToken: true
