@@ -84,7 +84,8 @@ module.exports = {
     },
 
     env: {
-        baseUrl: process.env.BASE_URL ||  'https://nuxt-blog-1005d.firebaseio.com'
+        baseUrl: process.env.BASE_URL ||  'https://nuxt-blog-1005d.firebaseio.com',
+        fireBaseApiKey: 'AIzaSyBC5ikSzMGY4ZteuL9nQJfVl9pBfrq4Qmk'
     },
 
     // router: {

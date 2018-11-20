@@ -1,10 +1,10 @@
 <template>
     <div class="admin-auth-page">
         <div class="auth-container">
-            <form>
-                <AppControlInput type="email">E-mail address</AppControlInput>
+            <form @submit.prevent="onSubmit">
+                <AppControlInput type="email" v-model="email">E-mail address</AppControlInput>
 
-                <AppControlInput type="password">Password</AppControlInput>
+                <AppControlInput type="password" v-model="password">Password</AppControlInput>
 
                 <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign up' }}</AppButton>
 
@@ -19,10 +19,23 @@
         name: 'AdminAuthPage',
         data() {
             return {
-                isLogin: true
+                isLogin: true,
+                email: '',
+                password: ''
             }
         },
-        layout: 'admin'
+        layout: 'admin',
+        methods: {
+            onSubmit() {
+                this.$axios.$post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + process.env.fireBaseApiKey, {
+                    email: this.email,
+                    password: this.password,
+                    returnSecureToken: true
+                }).then(result => {
+                    console.log(result);
+                }).catch(e => console.log(e));
+            }
+        }
     }
 </script>
 
