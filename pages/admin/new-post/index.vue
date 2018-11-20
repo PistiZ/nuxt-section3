@@ -11,7 +11,7 @@
     import AdminPostForm from "@/components/Admin/AdminPostForm";
 
     export default {
-        middleware: 'auth',
+        middleware: ['check-auth', 'auth'],
         components: {
             AdminPostForm
         },
